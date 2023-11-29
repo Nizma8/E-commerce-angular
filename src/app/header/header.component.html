@@ -1,28 +1,39 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100 z-1 ">
     <div class="container-fluid">
-            <a class="navbar-brand" routerLink="#">
-                <i class="fa-solid fa-truck-fast"></i>E-cart</a>
+            <a class="navbar-brand fs-1" routerLink="#">
+                <i class="fa-solid fa-truck-fast text-success fa-beat me-3"></i>E-cart</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-5 mb-2 mb-lg-0 ">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
           <li class="nav-item d-flex me-5">
-            <input style="width: 400px;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <div class="input-group">
+              <div class="form-floating " style="width: 400px;">
+                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Search">
+              </div>
+              <span class="input-group-text "><i class="fa-solid fa-search text-black"></i></span>
+
+            </div>
 
         </li>
-          <li class="nav-item d-flex ">
-            <a class="nav-link" routerLink="user/Login"><i class="fa-solid fa-circle-user me-2"></i>Login</a>
+          <li class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2">
+            <a class="nav-link" routerLink="user/login">Login</a>
+            <i class="fa-solid fa-circle-user me-2 fs-5"></i>
           </li>
          
-          <li class="nav-item d-flex">
-            <a class="nav-link" routerLink="Wishlist"><i class="fa-regular fa-heart me-2"></i>Wishlist <span class="badge rounded-pill bg-dark text-white ms-1 ">0</span></a>
+          <li class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2 ">
+            <i class="fa-regular fa-heart "></i>
+            <a class="nav-link" routerLink="wishlist">Wishlist 
+              </a>
+              <span class="badge rounded-pill bg-white text-dark ms-1 ">0</span>
            
           </li>
-          <li class="nav-item d-flex">
-            <a class="nav-link" routerLink="Cart"><i class="fa-solid fa-cart-plus me-2"></i>Cart<span class="badge rounded-pill bg-dark text-white ms-1 ">0</span></a>
+          <li class="nav-item d-flex btn btn-outline-success justify-content-center align-items-center me-2">
+            <i class="fa-solid fa-cart-plus me-2"></i>
+            <a class="nav-link" routerLink="cart">Cart</a>
+            <span class="badge rounded-pill bg-white text-dark ms-1 ">0</span>
           </li>
         </ul>
        

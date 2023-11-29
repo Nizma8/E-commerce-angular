@@ -1,0 +1,6 @@
+h5 {
+    margin-bottom: 0; /* Remove default bottom margin on heading tags */
+  }
+  p {
+    margin-top: 0; /* Remove default top margin on paragraph tags */
+  }

@@ -12,7 +12,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
-
+import {HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +25,13 @@ import { ViewProductsComponent } from './view-products/view-products.component';
     CheckoutComponent,
     LoginComponent,
     RegisterComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
