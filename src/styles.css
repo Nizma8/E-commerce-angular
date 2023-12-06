@@ -4,4 +4,5 @@
     padding: 0;
     overflow-x: hidden;
     font-family: 'Noto Serif Vithkuqi',sans-serif;
+    box-sizing: border-box;
 }

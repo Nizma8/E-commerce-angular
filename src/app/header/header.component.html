@@ -11,29 +11,36 @@
           <li class="nav-item d-flex me-5">
             <div class="input-group">
               <div class="form-floating " style="width: 400px;">
-                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Search">
+                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Search" #search>
               </div>
-              <span class="input-group-text "><i class="fa-solid fa-search text-black"></i></span>
+              <span class="input-group-text " (click)="getSearchKey(search)"><i class="fa-solid fa-search text-black"></i></span>
 
             </div>
 
         </li>
-          <li class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2">
+          <li *ngIf="!username" class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2">
             <a class="nav-link" routerLink="user/login">Login</a>
             <i class="fa-solid fa-circle-user me-2 fs-5"></i>
+          </li>
+          <li *ngIf="username" class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2">
+            <a class="nav-link" routerLink="user/login">Welcome <span class="text-primary">{{username}}</span></a>
+            <i class="fa-solid fa-circle-user me-2 fs-5"></i>
+          </li>
+          <li *ngIf="username" class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2" (click)="logout()">
+           Logout 
           </li>
          
           <li class="nav-item d-flex justify-content-center align-items-center btn btn-outline-success me-2 ">
             <i class="fa-regular fa-heart "></i>
             <a class="nav-link" routerLink="wishlist">Wishlist 
               </a>
-              <span class="badge rounded-pill bg-white text-dark ms-1 ">0</span>
+              <span class="badge rounded-pill bg-white text-dark ms-1 ">{{count}}</span>
            
           </li>
           <li class="nav-item d-flex btn btn-outline-success justify-content-center align-items-center me-2">
             <i class="fa-solid fa-cart-plus me-2"></i>
             <a class="nav-link" routerLink="cart">Cart</a>
-            <span class="badge rounded-pill bg-white text-dark ms-1 ">0</span>
+            <span class="badge rounded-pill bg-white text-dark ms-1 ">{{cartCount}}</span>
           </li>
         </ul>
        

@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from './pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     ViewProductsComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

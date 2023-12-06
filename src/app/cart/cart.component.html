@@ -16,24 +16,37 @@
                     <th class="px-4 py-3">Product</th>
                     <th class="px-4 py-3">Image</th>
                     <th class="px-4 py-3">Quantity</th>
+                    <th class="px-4 py-3">Total Price</th>
                     <th class="px-4 py-3">Action</th>
     
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="px-4 py-3">1</td>
-                    <td class="px-4 py-3">Fancy Product</td>
-                    <td class="px-4 py-3 "><img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" width="100px" alt=""></td>
-                    <td class="px-4 py-3 d-flex mt-3 align-items-center"><i class="fa-solid fa-plus border me-2 p-1"></i>1 <i class="fa-solid fa-minus border ms-2 p-1 "></i></td>
-                    <td class="px-4 py-3"><i class="fa-solid fa-trash text-danger btn"></i></td>
+                <tr *ngFor="let product of cart;let i = index">
+                    <td class="px-4 py-3">{{i+1}}</td>
+                    <td class="px-4 py-3">{{product.title}}</td>
+                    <td class="px-4 py-3 "><img [src]="product.image" width="100px" alt=""></td>
+                    <td class="px-4 py-3 d-flex mt-3 align-items-center">
+                        <div class="d-flex">
+                            <button class="btn fw-bolder fs-2" (click)="decrement(product.id)">-</button>
+                            <input type="num" class="form-control" [value]="product.quantity" style="max-width: 3rem" readonly/>
+                            <button class="btn fw-bolder fs-2" (click)="increment(product.id)">+</button>
+
+                        </div>
+                    </td>
+                    <td>${{product.totalPrice}}</td>
+                    <td class="px-4 py-3"><i class="fa-solid fa-trash text-danger btn" (click)="removeItem(product._id)"></i></td>
      
                 </tr>
             </tbody>
         </table>
+
         <div class="d-flex justify-content-center align-items-center mt-5">
-            <button class="btn-danger btn me-2">Empty Cart</button>
+            <button class="btn-danger btn me-2" (click)="emptyCart()">Empty Cart</button>
             <button class="btn-warning btn">Shop More</button>
+        </div>
+        <div class="d-flex justify-content-end me-5 mt-5"><p>TotalPrice:${{cartTotalPrice}}</p>
+            <button class="text-info" routerLink="/user/checkout">checkoutpage</button>
         </div>
     </div>
 

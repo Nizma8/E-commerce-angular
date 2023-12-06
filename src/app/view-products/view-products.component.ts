@@ -32,4 +32,22 @@ export class ViewProductsComponent implements OnInit{
       }
     })
   }
+
+  addtoWishlist = (product:any)=>{
+    if(sessionStorage.getItem("token")){
+      this.api.addToWishlistApi(product).subscribe({
+        next:(res:any)=>{
+          console.log(res);
+          this.api.getWIshlistCount()
+          alert(`${res.title} add to your wishlist`)
+          
+        },
+        error:(err:any)=>{
+          alert(err.error)
+        }
+      })
+    }else{
+alert("please login")
+    }
+  }
 }

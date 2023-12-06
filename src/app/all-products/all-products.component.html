@@ -27,7 +27,7 @@
   </div>
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
 
-        <div class="col mb-5" *ngFor="let product of allProducts">
+        <div class="col mb-5" *ngFor="let product of allProducts | search:searchKey:'title' " >
             <div class="card h-100 p-2 shadow">
                 <!-- Product image-->
                <a routerLink="product/view/{{product.id}}"> <img class="card-img-top" [src]="product.image" alt="..."  height="300px" /></a>
@@ -44,11 +44,11 @@
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between">
                  
                  
-                    <button class="btn btn-white p-2 rounded border  btn-outline-danger">
+                    <button class="btn btn-white p-2 rounded border  btn-outline-danger" (click)="addtoWishlist(product)">
                       <i class="fa-regular fa-heart me-2"></i>Wishlist
                     </button>
                 
-                  <button class="btn btn-white p-2 rounded border btn-outline-success">
+                  <button class="btn btn-white p-2 rounded border btn-outline-success" (click)="addtoCart(product)">
                     <i class="fa-solid fa-cart-shopping me-2"></i>
                     Add to Cart
                  </button>

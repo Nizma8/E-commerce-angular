@@ -37,7 +37,9 @@ export class LoginComponent {
    this.api.loginApi(reqBody).subscribe({
     next:(res:any)=>{
       console.log(res);
-      
+      sessionStorage.setItem("token",res.token)
+      localStorage.setItem("existinguser",JSON.stringify(res.existinguser))
+      this.route.navigateByUrl('')
     },
     error:(err:any)=>{
       console.log(err);
