@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit{
    count:Number=0
    cartCount:Number=0
    searchString:string =""
-   constructor(private api:ApiService){}
+   constructor(private api:ApiService ,private route:Router){}
    ngOnInit(): void {
      if(localStorage.getItem("existinguser")){
       this.username=JSON.parse(localStorage.getItem("existinguser")||"").username
@@ -43,5 +44,6 @@ export class HeaderComponent implements OnInit{
     localStorage.removeItem("existinguser")
     sessionStorage.removeItem("token")
     this.username=""
+    this.route.navigateByUrl("")
    }
 }

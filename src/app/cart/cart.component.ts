@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +9,8 @@ import { ApiService } from '../services/api.service';
 })
 export class CartComponent implements OnInit {
  cart:any=[]
- cartTotalPrice:Number=0
- constructor(private api:ApiService){}
+ cartTotalPrice:number=0
+ constructor(private api:ApiService, private route:Router ){}
   ngOnInit(): void {
     if(sessionStorage.getItem("token")){
       this.getCart()
@@ -92,5 +93,9 @@ this.api.getCartApi().subscribe({
         
       }
     })
+  }
+  checkout(){
+    this.api.cartTotalAmount.next(this.cartTotalPrice)
+    this.route.navigateByUrl('/user/checkout')
   }
 }

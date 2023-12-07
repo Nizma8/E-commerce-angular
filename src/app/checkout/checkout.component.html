@@ -1,9 +1,8 @@
 <app-header></app-header>
 <div
-  class="container d-flex w-100 justify-content-center align-items-center mt-5 flex-column"
- style="height: 100vh;"
+  class="container d-flex w-100 justify-content-center align-items-center mt-5 flex-column" style="margin-top: 120px; height: 90vh;"
 >
-  <div class="w-50" *ngIf="checkoutStatus">
+  <div class="w-50" *ngIf="!checkoutStatus">
       <h1>Delivery Details</h1>
       <form class="border p-5 mt-5 " [formGroup]="checkoutForm" (ngSubmit)="buyNow()">
         <div class="mb-3">
@@ -51,11 +50,14 @@
     
         <div class="d-flex justify-content-between">
           <button  class="btn btn-primary" (click)="cancel()">Cancel</button>
-          <button type="submit" class="btn btn-warning">But Now</button>
+          <button type="submit" class="btn btn-warning" >But Now</button>
         </div>
       </form>
   </div>
-  <div class="w-50" *ngIf="!checkoutStatus">
+  
+</div>
+<div *ngIf="checkoutStatus" class=" d-flex w-100 justify-content-center align-items-center mt-5 flex-column">
+  <div >
     <h1 class="mb-5">payment Details</h1>
     <h1>Delivery Deyails</h1>
     <h5>{{checkoutForm.value.uname}}</h5>
@@ -64,8 +66,8 @@
 
 <h5>{{checkoutForm.value.pincode}}</h5>
  <div class="d-flex justify-content-center mt-3">
-    <h6>Total Amount <span>$1000</span></h6>
-    
+    <h6>Total Amount <span>{{cartTotalAmount}}</span></h6>
+    <div class="m-3"><ngx-paypal [config]="payPalConfig"></ngx-paypal></div>
  </div>
 
 
@@ -73,5 +75,4 @@
      
   </div>
 </div>
-
 <app-footer></app-footer>
