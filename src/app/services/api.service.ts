@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-   server_url:string="http://localhost:3000"
+   server_url:string="https://angualt-server.onrender.com"
 
    wishListCount = new BehaviorSubject(0)
    searchKey = new BehaviorSubject("")
